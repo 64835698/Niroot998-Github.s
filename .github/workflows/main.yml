@@ -1,12 +1,18 @@
-name: Hello_Action
+name: Run_Python_Script
 
-on: [push] 
+on: [push]
 
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Greeting
-        run: |
-          echo "ระบบ GitHub Actions ของคุณเริ่มทำงานแล้ว!"
-          echo "ยินดีด้วยครับ คุณตั้งค่า Workflow แรกสำเร็จ!"
+      - name: Checkout code
+        uses: actions/checkout@v4  # ดึงโค้ดในเครื่องคุณออกมา
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run my script
+        run: python hello.py  # นี่คือคำสั่งรันไฟล์ที่คุณเพิ่งสร้าง!
