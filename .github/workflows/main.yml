@@ -1,0 +1,12 @@
+name: Hello_Action
+
+on: [push] 
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: |
+          echo "ระบบ GitHub Actions ของคุณเริ่มทำงานแล้ว!"
+          echo "ยินดีด้วยครับ คุณตั้งค่า Workflow แรกสำเร็จ!"
